@@ -10,17 +10,13 @@
 /* Scope everything under .legacy-content to avoid polluting global namespace */
 .legacy-content {
   font-family: 'Outfit', sans-serif;
-  /* Use modern font */
-  color: #334155;
-  /* Slate 700 */
+  @apply text-slate-700 dark:text-slate-300;
 }
 
 /* 
    --------------------------------------------------------
    BOOTSTRAP 3 GRID EMULATION (Flexbox) for "col-sm-*"
    --------------------------------------------------------
-   We mostly care about SM breakpoint (tablet/desktop) behavior 
-   because legacy site was "sm" driven.
 */
 .legacy-content .row {
   display: flex;
@@ -68,16 +64,12 @@
     float: left;
   }
 
-  /* Flexbox fallback if floats cause issues (preferred in 2024) */
   .legacy-content [class*="col-sm-"] {
     float: none;
     display: inline-block;
     vertical-align: top;
   }
 
-  /* Actually, let's just use flex for parent containers if possible, 
-     but legacy HTML doesn't always have .row. 
-     So let's specificially target the text/image split structure we saw. */
   .legacy-content .col-sm-8.padding-right {
     display: inline-block;
     width: 66%;
@@ -104,28 +96,44 @@
 
 /* Typography Overrides */
 .legacy-content h1 {
-  @apply text-3xl font-bold text-slate-900 mb-6 border-b pb-4 border-slate-200;
+  @apply text-3xl font-bold text-slate-900 dark:text-white mb-6 border-b pb-4 border-slate-200 dark:border-slate-800;
 }
 
 .legacy-content h2 {
-  @apply text-2xl font-bold text-slate-800 mt-8 mb-4 flex items-center gap-2;
+  @apply text-2xl font-bold text-slate-800 dark:text-slate-100 mt-8 mb-4 flex items-center gap-2;
 }
 
 .legacy-content h3 {
-  @apply text-xl font-semibold text-slate-800 mt-6 mb-3;
+  @apply text-xl font-semibold text-slate-800 dark:text-slate-200 mt-6 mb-3;
+}
+
+.legacy-content h4,
+.legacy-content h5,
+.legacy-content h6 {
+  @apply font-semibold text-slate-800 dark:text-slate-200 mt-4 mb-2;
 }
 
 .legacy-content p {
-  @apply text-base leading-relaxed text-slate-600 mb-4 text-justify;
+  @apply text-base leading-relaxed text-slate-600 dark:text-slate-300 mb-4 text-justify;
 }
 
-.legacy-content ul {
-  @apply list-disc list-inside space-y-1 ml-4 mb-6 text-slate-600;
+.legacy-content ul,
+.legacy-content ol {
+  @apply list-disc list-inside space-y-1 ml-4 mb-6 text-slate-600 dark:text-slate-300;
 }
 
-/* Image Styling - Make them look premium */
+.legacy-content strong,
+.legacy-content b {
+  @apply font-bold text-slate-900 dark:text-white;
+}
+
+.legacy-content a {
+  @apply text-blue-600 dark:text-blue-400 hover:underline;
+}
+
+/* Image Styling */
 .legacy-content img {
-  @apply rounded-xl shadow-lg border border-slate-200 transition-transform duration-300 hover:scale-[1.02];
+  @apply rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-transform duration-300 hover:scale-[1.02] bg-white dark:bg-slate-800;
   display: block;
   max-width: 100%;
   height: auto;
@@ -133,27 +141,27 @@
 
 /* Table Styling - Industrial Look */
 .legacy-content .table-responsive {
-  @apply overflow-x-auto rounded-lg border border-slate-200 shadow-sm mb-8;
+  @apply overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm mb-8;
 }
 
 .legacy-content table {
-  @apply w-full text-sm text-left;
+  @apply w-full text-sm text-left border-collapse;
 }
 
 .legacy-content th {
-  @apply bg-slate-100 text-slate-900 font-bold px-4 py-3 border-b border-slate-200 uppercase tracking-wider;
+  @apply bg-slate-100 dark:bg-slate-800/50 text-slate-900 dark:text-white font-bold px-4 py-3 border-b border-slate-200 dark:border-slate-700 uppercase tracking-wider whitespace-nowrap;
 }
 
 .legacy-content td {
-  @apply px-4 py-3 border-b border-slate-100 text-slate-600;
+  @apply px-4 py-3 border-b border-slate-100 dark:border-slate-800/50 text-slate-600 dark:text-slate-300;
   vertical-align: top;
 }
 
 .legacy-content tr:hover td {
-  @apply bg-slate-50;
+  @apply bg-slate-50 dark:bg-slate-800/30;
 }
 
-/* Hide unwanted elements that cleaner forgot */
+/* Hide unwanted elements */
 .legacy-content .snippet-title,
 .legacy-content .snippet-markup {
   display: none;

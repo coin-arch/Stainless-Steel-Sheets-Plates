@@ -88,7 +88,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         ) : (
                             // Fallback to Legacy HTML
                             <div
-                                className="legacy-content prose prose-blue max-w-none text-gray-700 dark:text-gray-300 leading-relaxed"
+                                className="legacy-content prose prose-blue dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: post.content }}
                             />
                         )}
