@@ -1,133 +1,161 @@
-import Link from 'next/link';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import React from 'react';
+import Image from 'next/image';
+import { MapPin, Phone, Mail, Send } from 'lucide-react';
 
-export default function ContactUsPage() {
+export default function ContactUs() {
     return (
-        <div className="min-h-screen bg-white dark:bg-slate-950 font-[var(--font-outfit)]">
-            {/* Header Strip - Slate Theme */}
-            <div className="bg-slate-900 text-white py-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-blue-900/10" />
-                <div className="container mx-auto px-4 text-center relative z-10">
-                    <h1 className="text-5xl font-bold mb-6">Get in Touch</h1>
-                    <p className="text-gray-400 text-xl font-light max-w-2xl mx-auto">
-                        Have a question or need a quote? We are here to help you with your metal requirements.
-                    </p>
-                </div>
-            </div>
-
-            <div className="container mx-auto px-4 py-20 -mt-10 relative z-20">
-                <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-slate-800 grid grid-cols-1 lg:grid-cols-2">
-
-                    {/* Contact Form (Left) */}
-                    <div className="p-12 lg:p-16 order-2 lg:order-1 bg-white dark:bg-slate-900">
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Send us a Message</h2>
-                        <form className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">First Name</label>
-                                    <input type="text" className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white outline-none placeholder:text-gray-400" placeholder="John" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Last Name</label>
-                                    <input type="text" className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white outline-none placeholder:text-gray-400" placeholder="Doe" />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
-                                <input type="email" className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white outline-none placeholder:text-gray-400" placeholder="john@company.com" />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Product Interest</label>
-                                <select className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white outline-none cursor-pointer">
-                                    <option>Stainless Steel Pipes</option>
-                                    <option>Butt Weld Fittings</option>
-                                    <option>Flanges</option>
-                                    <option>High Nickel Alloys</option>
-                                    <option>Other / General Inquiry</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Message</label>
-                                <textarea rows={4} className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white outline-none resize-none placeholder:text-gray-400" placeholder="Tell us about your requirements..."></textarea>
-                            </div>
-
-                            <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-600/30 active:scale-95">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-
-                    {/* Contact Info (Right) */}
-                    <div className="bg-slate-50 dark:bg-slate-800/50 p-12 lg:p-16 flex flex-col justify-between relative overflow-hidden order-1 lg:order-2 border-b lg:border-b-0 lg:border-l border-gray-100 dark:border-slate-800">
-
-                        <div className="relative z-10">
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Contact Information</h2>
-                            <div className="space-y-10">
-                                <div className="flex items-start gap-5 group">
-                                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center text-blue-600 shrink-0 group-hover:scale-110 transition-transform">
-                                        <MapPin size={24} />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">Registered Office</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                                            Prasad Chambers<br />
-                                            Tata Rd No 2, Charni Road East,<br />
-                                            Opera House, Girgaon,<br />
-                                            Mumbai, Maharashtra 400004
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-5 group">
-                                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center text-blue-600 shrink-0 group-hover:scale-110 transition-transform">
-                                        <Phone size={24} />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">Phone</h3>
-                                        <p className="text-lg text-gray-700 dark:text-gray-300 font-medium">+91-9892171042</p>
-                                        <p className="text-sm text-gray-500 mt-1">(Mon-Sat, 9am - 7pm IST)</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-5 group">
-                                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center text-blue-600 shrink-0 group-hover:scale-110 transition-transform">
-                                        <Mail size={24} />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">Email</h3>
-                                        <p className="text-lg text-gray-700 dark:text-gray-300 font-medium">enquiry@metalministry.in</p>
-                                        <p className="text-sm text-gray-500 mt-1">Response within 24 hours</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-slate-700 relative z-10">
-                            <div className="flex items-center gap-4 text-gray-500">
-                                <Clock className="w-5 h-5" />
-                                <span className="text-sm">Operating Hours: 09:00 AM - 07:00 PM</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                {/* Map Section */}
-                <div className="mt-12 bg-white dark:bg-slate-900 p-2 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-800 h-[450px] relative overflow-hidden">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.6559533358!2d72.8166699742478!3d18.95287705602738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce0e60802c63%3A0x6295551f33276668!2sPrasad%20Chambers%20Opera%20House!5e0!3m2!1sen!2sin!4v1703333333333!5m2!1sen!2sin"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        className="rounded-2xl"
+        <div className="bg-white dark:bg-slate-900">
+            {/* 1. Page Banner */}
+            <section className="relative h-[200px] flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/slider-3.jpg" // Using a generic slider image as contact banner background
+                        alt="Contact Us Banner"
+                        fill
+                        className="object-cover brightness-50"
                     />
                 </div>
-            </div>
+                <div className="relative z-10 text-center text-white">
+                    <h1 className="text-5xl font-bold mb-4 tracking-tight">Contact Us</h1>
+                    <div className="flex justify-center gap-2 text-sm uppercase tracking-widest opacity-80">
+                        <span>Home</span>
+                        <span>/</span>
+                        <span>Get In Touch</span>
+                    </div>
+                </div>
+            </section>
+
+            {/* 2. Contact Content */}
+            <section className="py-24 container mx-auto px-4">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+                    {/* Info Column */}
+                    <div className="lg:col-span-1 space-y-8">
+                        <div>
+                            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Contact Details</h2>
+                            <p className="text-gray-600 dark:text-gray-400">Get in touch with us for any questions about our industries or projects.</p>
+                        </div>
+
+                        <div className="space-y-6">
+                            {/* Address */}
+                            <div className="flex items-start gap-4 p-6 bg-gray-50 dark:bg-slate-800 rounded-2xl group hover:shadow-lg transition-shadow">
+                                <div className="w-12 h-12 bg-blue-100 dark:bg-slate-700/50 rounded-full flex items-center justify-center text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <MapPin size={20} />
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1">Registered Office</h4>
+                                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                                        517, Prasad Chambers, Tata Road No. 2, Opera House, Mumbai - 400004.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Email */}
+                            <div className="flex items-start gap-4 p-6 bg-gray-50 dark:bg-slate-800 rounded-2xl group hover:shadow-lg transition-shadow">
+                                <div className="w-12 h-12 bg-blue-100 dark:bg-slate-700/50 rounded-full flex items-center justify-center text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <Mail size={20} />
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1">Email Us</h4>
+                                    <div className="flex flex-col text-sm text-gray-600 dark:text-gray-300">
+                                        <a href="mailto:enquiry@metalministry.in" className="hover:text-blue-600">enquiry@metalministry.in</a>
+                                        <a href="mailto:info@metalministry.in" className="hover:text-blue-600">info@metalministry.in</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Phone */}
+                            <div className="flex items-start gap-4 p-6 bg-gray-50 dark:bg-slate-800 rounded-2xl group hover:shadow-lg transition-shadow">
+                                <div className="w-12 h-12 bg-blue-100 dark:bg-slate-700/50 rounded-full flex items-center justify-center text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <Phone size={20} />
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-gray-900 dark:text-white mb-1">Mobile</h4>
+                                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                                        +91-9892171042
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Form Column */}
+                    <div className="lg:col-span-2">
+                        <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100 dark:border-slate-700">
+                            <div className="mb-8">
+                                <span className="text-blue-600 font-bold uppercase tracking-widest text-sm">We are Metal Ministry Inc.</span>
+                                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mt-2">Send a Message</h2>
+                            </div>
+
+                            <form className="space-y-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-gray-300">Your Name</label>
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            placeholder="John Doe"
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:text-white"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            placeholder="john@example.com"
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:text-white"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label htmlFor="phone" className="text-sm font-medium text-gray-700 dark:text-gray-300">Phone Number</label>
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        placeholder="+91 12345 67890"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:text-white"
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label htmlFor="message" className="text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+                                    <textarea
+                                        id="message"
+                                        rows={4}
+                                        placeholder="How can we help you?"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:text-white resize-none"
+                                    ></textarea>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg hover:shadow-blue-600/30 transition-all flex items-center justify-center gap-2 group"
+                                >
+                                    Send Message
+                                    <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            {/* 3. Map Section */}
+            <section className="h-[450px] w-full relative grayscale-[50%] hover:grayscale-0 transition-all duration-700">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d471.6798382797592!2d72.825325!3d18.956223!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce17abf17667%3A0xd7d5ab2f4be1759b!2sArdeshir%20Dadi%20St.%20%26%20CP%20Tank%20Cross%20Ln%2C%20Charni%20Road%20East%2C%20Cawasji%20Patel%20Tank%2C%20Bhuleshwar%2C%20Mumbai%2C%20Maharashtra%20400004!5e0!3m2!1sen!2sin!4v1603528910876!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    title="Metal Ministry Inc Location"
+                />
+            </section>
+
         </div>
     );
 }

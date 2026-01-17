@@ -38,7 +38,7 @@ if (missingVars.length > 0) {
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const PUBLIC_HTML_DIR = path.join(__dirname, '../../legacy_source');
+const PUBLIC_HTML_DIR = path.join(__dirname, '../../public_html');
 const EXCLUDED_FILES = [
     'index.html',
     'contact-us.html',
@@ -139,6 +139,7 @@ async function migrate() {
                 .single();
 
             const postData = {
+                type: 'product',
                 title: title,
                 content: content,
                 slug: slug,
@@ -146,7 +147,7 @@ async function migrate() {
                 published_at: new Date().toISOString(),
                 meta_title: title, // Use title tag as meta_title
                 meta_description: meta_description,
-                keywords: keywords,
+                keywords: keywords ? keywords.split(',').map(k => k.trim()) : [],
                 canonical_url: canonical_url
             };
 

@@ -9,33 +9,30 @@ import Image from 'next/image';
 const SLIDES = [
     {
         id: 1,
-        // Legacy Slider 1
-        image: '/images/legacy-slider/slider-1.jpg',
-        subtitle: 'Forged Fittings Manufacturer',
-        title: 'Precision Threaded & Socket Weld Fittings',
-        description: 'ISO 9001:2015 Certified. Specialized in High Pressure Fittings for Oil, Gas, and Petrochemical Industries.',
-        cta: 'Contact Us',
-        link: '/contact-us'
+        image: '/images/slider-1.jpg',
+        subtitle: 'Key Manufacturer',
+        title: 'Leading Manufacturer of Plates & Sheets',
+        description: 'Specialized in Stainless Steel, Carbon Steel, and Alloy Steel Plates. Available in all grades including 304, 316, 904L.',
+        cta: 'View Sheets & Plates',
+        link: '/products/stainless-steel-sheets-plates-manufacturer-stockist'
     },
     {
         id: 2,
-        // Legacy Slider 2
-        image: '/images/legacy-slider/slider-2.jpg',
-        subtitle: 'Material Excellence',
-        title: 'Stainless Steel & Carbon Steel',
-        description: 'Premium quality 304/L, 316/L, A105, A350 LF2 Forged Fittings designed for extreme durability.',
-        cta: 'View Forged Fittings',
-        link: '/products/stainless-steel-threaded-forged-fittings-manufacturer'
+        image: '/images/slider-2.jpg',
+        subtitle: 'Global Stockist',
+        title: 'World\'s Largest Manufacturer of Strips & Coils',
+        description: 'Premium quality Strips & Coils available in various widths, thicknesses, and finishes for diverse industrial applications.',
+        cta: 'View Strips & Coils',
+        link: '/products/strips-coils-manufacturer-stockist'
     },
     {
         id: 3,
-        // Legacy Slider 3
-        image: '/images/legacy-slider/slider-3.jpg',
-        subtitle: 'Exotic Alloys',
-        title: 'Nickel & Titanium Alloys',
-        description: 'Expertise in Monel, Inconel, Hastelloy, and Titanium fittings for specialized applications.',
-        cta: 'View Exotic Alloys',
-        link: '/products/high-nickel-alloy-threaded-forged-fittings-manufacturer'
+        image: '/images/slider-3.jpg',
+        subtitle: 'Custom Solutions',
+        title: 'Premium Perforated Sheets & Chequered Plates',
+        description: 'High-quality Perforated Sheets for filtration and Chequered Plates for industrial flooring and safety.',
+        cta: 'View Perforated Sheets',
+        link: '/products/perforated-sheets-manufacturer-stockist'
     }
 ];
 

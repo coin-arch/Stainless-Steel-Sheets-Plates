@@ -64,14 +64,14 @@ export default function Footer() {
 
                     {/* Core Products */}
                     <div>
-                        <h4 className="text-white font-bold text-lg mb-6">Forged Fittings</h4>
+                        <h4 className="text-white font-bold text-lg mb-6">Sheets & Plates</h4>
                         <ul className="space-y-4">
-                            <li><FooterLink href="/products/stainless-steel-threaded-forged-fittings-manufacturer">Stainless Steel Threaded</FooterLink></li>
-                            <li><FooterLink href="/products/carbon-steel-threaded-forged-fittings-manufacturer">Carbon Steel Threaded</FooterLink></li>
-                            <li><FooterLink href="/products/alloy-steel-threaded-forged-fittings-manufacturer">Alloy Steel Threaded</FooterLink></li>
-                            <li><FooterLink href="/products/stainless-steel-socket-weld-forged-fittings-manufacturer">Stainless Socket Weld</FooterLink></li>
-                            <li><FooterLink href="/products/carbon-steel-socket-weld-forged-fittings-manufacturer">Carbon Socket Weld</FooterLink></li>
-                            <li><FooterLink href="/products/alloy-steel-socket-weld-forged-fittings-manufacturer">Alloy Socket Weld</FooterLink></li>
+                            <li><FooterLink href="/products/stainless-steel-sheets-plates-manufacturer-stockist">Stainless Steel Sheets</FooterLink></li>
+                            <li><FooterLink href="/products/strips-coils-manufacturer-stockist">Strips & Coils</FooterLink></li>
+                            <li><FooterLink href="/products/perforated-sheets-manufacturer-stockist">Perforated Sheets</FooterLink></li>
+                            <li><FooterLink href="/products/stainless-steel-chequered-plates-manufacturer-stockist">Chequered Plates</FooterLink></li>
+                            <li><FooterLink href="/products/duplex-steel-sheets-plates-manufacturer-stockist">Duplex Steel Plates</FooterLink></li>
+                            <li><FooterLink href="/products/nickel-alloy-sheets-plates-manufacturer-stockist">Nickel Alloy Plates</FooterLink></li>
                         </ul>
                     </div>
 

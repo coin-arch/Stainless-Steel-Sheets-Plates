@@ -3,6 +3,17 @@ export const FALLBACK_IMAGE = '/images/slider-hd-1.png';
 
 const SPECIFIC_MAPPINGS: Record<string, string> = {
     // Homepage "Category" Slugs -> Specific Legacy Grade Images
+    'stainless-steel-sheets-plates-manufacturer-stockist': 'stainless-steel-304-304l-304h-sheets-plates-manufacturer-stockist.jpg',
+    'carbon-steel-sheets-plates-manufacturer-stockist': 'sheet-plates.jpg',
+    'duplex-steel-sheets-plates-manufacturer-stockist': 'duplex-f51-31803-f53-s32205-sheets-plates-manufacturer-stockist.jpg',
+    'nickel-alloy-sheets-plates-manufacturer-stockist': 'alloy-400-plate-stockist.jpg',
+    'titanium-sheets-plates-manufacturer-stockist': 'titanium-alloys-gr2-gr5-gr7-strips-sheets-plates-coils.jpg',
+    'strips-coils-manufacturer-stockist': 'strips-coils.jpg',
+    'perforated-sheets-manufacturer-stockist': 'perforated-sheets.jpg',
+    'stainless-steel-chequered-plates-manufacturer-stockist': 'chequered-plates.jpg',
+    'aluminium-sheets-plates-manufacturer-stockist': 'aluminium-alloy-5083-5086-6013-6061-perforated-sheets.jpg',
+
+    // Legacy Fittings (Keep if needed or remove)
     'stainless-steel-threaded-forged-fittings-manufacturer': 'stainless-steel-304-threaded-forged-fittings-supplier.jpg',
     'carbon-steel-threaded-forged-fittings-manufacturer': 'carbon-steel-a105-threaded-forged-fittings-supplier.jpg',
     'stainless-steel-socket-weld-fittings-manufacturer': 'stainless-steel-304-socketweld-fittings-supplier.jpg',
@@ -10,9 +21,6 @@ const SPECIFIC_MAPPINGS: Record<string, string> = {
     'duplex-steel-s31803-s32205-threaded-forged-fittings-manufacturer': 'duplex-steel-s31803-s32205-threaded-forged-fittings-supplier.jpg',
     'high-nickel-alloy-threaded-forged-fittings-manufacturer': 'inconel-alloy-625-threaded-forged-fittings-supplier.jpg',
     'nickel-alloy-threaded-forged-fittings-manufacturer': 'nickel-alloy-200-threaded-forged-fittings-supplier.jpg',
-    // Fix Typos in filenames (legacy mismatches)
-    'inconel-alloy-825-socketweld-fittings-supplier': '/images/products/inconel-alloy-825-sockeweld-fittings-supplier.jpg', // missing 't'
-    'stainless-steel-347-socketweld-fittings-supplier': '/images/products/stainless-steel-347-sockeweld-fittings-supplier.jpg', // missing 't'
 
     // Mappings for missing specific images (Fallbacks)
     'titanium-alloy-grade-2-socketweld-fittings-supplier': '/images/products/titanium-alloy-socketweld-fittings-supplier.jpg',
@@ -48,7 +56,14 @@ const SPECIFIC_MAPPINGS: Record<string, string> = {
     // Generic Nickel Alloy Mappings
     'nickel-alloy-socket-weld-fittings-manufacturer': 'nickel-alloy-200-socketweld-fittings-supplier.jpg',
     'titanium-alloy-threaded-forged-fittings-manufacturer': 'titanium-alloy-grade-2-threaded-forged-fittings-supplier.jpg',
-    'cupro-nickel-threaded-forged-fittings-manufacturer': 'cupro-nickel-90-10-threaded-forged-fittings-supplier.jpg'
+    'cupro-nickel-threaded-forged-fittings-manufacturer': 'cupro-nickel-90-10-threaded-forged-fittings-supplier.jpg',
+
+
+
+    // Specific Fixes for 15-5PH and Super Duplex (from User feedback)
+    'stainless-steel-15-5ph-perforated-sheets-manufacturer-stockist': 'stainless-steel-15-5ph-chequered-plates-manufacturer-stockist.jpg',
+    'super-duplex-steel-sheets-plates-manufacturer-stockist': 'super-duplex-steel-s32750-sheets-plates-manufacturer-stockist.jpg', // Mapped to S32750 explicitly
+    'super-duplex-steel-perforated-sheets-manufacturer-stockist': 'super-duplex-steel-2760-chequered-plates-manufacturer-stockist.jpg',
 };
 
 export function getImageForProduct(slug: string): string {
@@ -56,32 +71,17 @@ export function getImageForProduct(slug: string): string {
 
     // 1. Check explicit mapping first
     if (SPECIFIC_MAPPINGS[slug]) {
-        return `/images/products/${SPECIFIC_MAPPINGS[slug]}`;
+        return `/images/${SPECIFIC_MAPPINGS[slug]}`;
     }
 
     // 2. Try variations
     const cleanSlug = slug.toLowerCase();
 
-    // Variation A: exact match
-    // Variation B: swap 'manufacturer' with 'supplier'
-    // Variation C: swap 'socket-weld' with 'socketweld' AND 'manufacturer' with 'supplier'
+    // Priority 1: Check for exact match (most files seem to match the slug exactly now)
+    // Priority 2: Check for 'manufacturer' -> 'supplier' replacement (for legacy files)
 
-    const possibleNames = [
-        `${cleanSlug}.jpg`,
-        `${cleanSlug.replace('manufacturer', 'supplier')}.jpg`,
-        `${cleanSlug.replace('socket-weld', 'socketweld').replace('manufacturer', 'supplier')}.jpg`,
-        `${cleanSlug.replace('socket-weld', 'socketweld')}.jpg`
-    ];
+    // Logic for returning the path string (Client-side we can't check existence easily)
+    // We will favor the EXACT slug match if it doesn't have the 'socket-weld' pattern (which works differently)
 
-    // Since we can't check file existence on client/server easily without fs (which isn't available in client components), 
-    // we have to rely on the most likely legacy pattern which is 'supplier' + 'socketweld'.
-    // However, for the 'best guess' without confirming file existence, we might return the 'supplier' version 
-    // as that matches 90% of the legacy file list.
-
-    // For specific known patterns that differ:
-    if (cleanSlug.includes('socket-weld')) {
-        return `/images/products/${cleanSlug.replace('socket-weld', 'socketweld').replace('manufacturer', 'supplier')}.jpg`;
-    }
-
-    return `/images/products/${cleanSlug.replace('manufacturer', 'supplier')}.jpg`;
+    return `/images/${cleanSlug}.jpg`;
 }
